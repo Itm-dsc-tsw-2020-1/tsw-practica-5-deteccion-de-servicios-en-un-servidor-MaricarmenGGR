@@ -12,13 +12,27 @@
 $servidor = "localhost";
 $usuario = "root";
 $clave = "";
-$conexion = mysqli_connect($servidor, $usuario, $clave, "miyama");
+$conexion = mysqli_connect($servidor, $usuario, $clave, "compuservi");
 if (!$conexion) {
-    echo "<h1>No se pudo conectar Amiguito</h1>";
+    echo "No se pudo conectar Amiguito";
     exit;
 }
-echo "<h1>Conexion Exitosa</h1>";
-
+$sql = "select * from computadoras";
+$resultado = mysqli_query($conexion, $sql);
+echo "Conexion Exitosa :v";
+echo "<table border='1'>";
+while ($renglon = mysqli_fetch_array($resultado)) {
+    $dir_ip = str_replace(" ", "%20", $renglon['dir_ip']);
+    $servicio = $renglon['servicio'];
+    $puerto = $renglon['puerto'];
+    $Estado = $renglon['Estado'];
+    echo "<td>
+            Direccion IP: " . $renglon['dir_ip'] . "<br/>
+            Servicio: " . $renglon['servicio'] . "<br/>
+            Puerto: " . $renglon['puerto'] . "<br/>
+            Estado: " . $renglon['Estado'] . "<br/>
+             </td>";
+}
 ?>
 
             </div>
