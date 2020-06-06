@@ -47,7 +47,7 @@ for i in range(r):
     if i > 5 and i < (len(textoSplit)-3):
         print(datos)
         val = datos
-        sql = "INSERT INTO computadoras (id_computadora, dir_ip, puerto, Estado, servicio) VALUES (0,'200.33.171.86', %s, %s, %s)"
+        sql = "INSERT INTO computadoras (id_computadora, dir_ip, puerto, Estado, servicio) VALUES (0,'200.33.171.124', %s, %s, %s)"
         operacion.execute(sql, val)
         conexion.commit()
         
